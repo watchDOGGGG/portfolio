@@ -64,6 +64,20 @@
     padding:5px 12px;border-radius:999px;margin-bottom:20px;
   }
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2);}
+  .hero-inner{display:flex;align-items:center;gap:48px;justify-content:space-between;}
+  .hero-text{flex:1;min-width:280px;}
+  .avatar-wrap{flex-shrink:0;}
+  .avatar-wrap img{
+    width:180px;height:180px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--card-border);
+    box-shadow:0 0 0 6px var(--accent-soft), 0 20px 50px rgba(0,0,0,0.45);
+  }
+  @media(max-width:720px){
+    .hero-inner{flex-direction:column-reverse;text-align:center;gap:28px;}
+    .hero-text{min-width:0;}
+    .lede{margin-left:auto;margin-right:auto;}
+    .meta-row,.cta-row{justify-content:center;}
+  }
   h1{font-size:44px;margin:0 0 8px;letter-spacing:-0.02em;}
   .role{font-size:19px;color:var(--accent);font-weight:600;margin:0 0 18px;}
   .lede{font-size:16px;color:var(--text-dim);max-width:640px;margin:0 0 26px;}
@@ -79,6 +93,8 @@
   .btn.primary:hover{background:#4a7cf0;}
   .btn.ghost{color:var(--text);background:transparent;}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
+  .btn.twedot{background:#8b5cf6;color:#fff;border-color:#8b5cf6;}
+  .btn.twedot:hover{background:#7c3aed;border-color:#7c3aed;}
 
   section{padding:56px 0;border-top:1px solid var(--card-border);}
   h2{font-size:22px;margin:0 0 6px;}
@@ -178,24 +194,32 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span> Open to new roles</div>
-    <h1>Prince Emmanuel</h1>
-    <p class="role">Senior Full-Stack Engineer / Software Architect</p>
-    <p class="lede">
-      8+ years building complete products — React/React Native frontends backed by high-performance APIs,
-      event-driven systems, and cloud-native microservices — for Fintech, SaaS, and AI-integrated products.
-      Hands-on experience architecting and building a real-time social media platform solo, backend to
-      mobile. Deep expertise across TypeScript/Node.js, Go, and AWS, owning delivery end-to-end while
-      leading and mentoring engineering teams.
-    </p>
-    <div class="meta-row">
-      <span>📍 Remote · Open to relocation (Canada, Portugal, Spain, EU)</span>
-      <span>🏢 Hybrid available in Lagos, Nigeria</span>
-    </div>
-    <div class="cta-row">
-      <a class="btn primary" href="mailto:odurandyjnr@gmail.com">Email Me</a>
-      <a class="btn ghost" href="https://linkedin.com/in/prince-emmanuel-se" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn ghost" href="https://github.com/watchDOGGGG" target="_blank" rel="noopener">GitHub</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow"><span class="dot"></span> Open to new roles</div>
+        <h1>Prince Emmanuel</h1>
+        <p class="role">Senior Full-Stack Engineer / Software Architect</p>
+        <p class="lede">
+          8+ years building complete products — React/React Native frontends backed by high-performance APIs,
+          event-driven systems, and cloud-native microservices — for Fintech, SaaS, and AI-integrated products.
+          Hands-on experience architecting and building a real-time social media platform solo, backend to
+          mobile. Deep expertise across TypeScript/Node.js, Go, and AWS, owning delivery end-to-end while
+          leading and mentoring engineering teams.
+        </p>
+        <div class="meta-row">
+          <span>📍 Remote · Open to relocation (Canada, Portugal, Spain, EU)</span>
+          <span>🏢 Hybrid available in Lagos, Nigeria</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:odurandyjnr@gmail.com">Email Me</a>
+          <a class="btn ghost" href="https://linkedin.com/in/prince-emmanuel-se" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/watchDOGGGG" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn twedot" href="https://twedot.com/u/2556d74aca726ab6" target="_blank" rel="noopener">Contact me on Twedot</a>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <img src="profile.jpg" alt="Prince Emmanuel">
+      </div>
     </div>
   </div>
 </header>
@@ -229,6 +253,7 @@
         <h3>Databases</h3>
         <div class="tag-row">
           <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span>
+          <span class="tag">SQLite</span><span class="tag">WatermelonDB</span>
         </div>
       </div>
       <div class="skill-cat">
@@ -507,6 +532,7 @@
       <a class="btn primary" href="mailto:odurandyjnr@gmail.com">odurandyjnr@gmail.com</a>
       <a class="btn ghost" href="https://linkedin.com/in/prince-emmanuel-se" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn ghost" href="https://github.com/watchDOGGGG" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn twedot" href="https://twedot.com/u/2556d74aca726ab6" target="_blank" rel="noopener">Contact me on Twedot</a>
     </div>
     <p class="fine">© 2026 Prince Emmanuel</p>
   </div>
