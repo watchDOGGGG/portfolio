@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prince Emmanuel — Senior Full-Stack Engineer</title>
+<meta name="description" content="Prince Emmanuel — Senior Full-Stack Engineer & Engineering Lead. Building complete products from React Native apps to Go microservices.">
+<style>
+  :root{
+    --bg:#0b0d12;
+    --bg-alt:#12151d;
+    --card:#161a24;
+    --card-border:#242938;
+    --text:#e8eaf0;
+    --text-dim:#9aa2b2;
+    --text-faint:#6b7386;
+    --accent:#5b8cff;
+    --accent-soft:rgba(91,140,255,0.12);
+    --accent-2:#7ee0c3;
+    --tag-bg:#1c2130;
+    --tag-border:#2a3040;
+    --maxw:980px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,13,18,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--card-border);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .brand{font-weight:700;letter-spacing:.02em;color:var(--text);}
+  .navlinks{display:flex;gap:22px;}
+  .navlinks a{color:var(--text-dim);font-size:14px;}
+  .navlinks a:hover{color:var(--text);text-decoration:none;}
+  @media(max-width:640px){.navlinks{display:none;}}
+
+  /* HERO */
+  header.hero{
+    padding:76px 0 56px;
+    background:
+      radial-gradient(700px 300px at 15% -10%, var(--accent-soft), transparent 60%),
+      radial-gradient(500px 260px at 100% 0%, rgba(126,224,195,0.08), transparent 60%);
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;color:var(--accent-2);
+    background:rgba(126,224,195,0.08);
+    border:1px solid rgba(126,224,195,0.25);
+    padding:5px 12px;border-radius:999px;margin-bottom:20px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2);}
+  h1{font-size:44px;margin:0 0 8px;letter-spacing:-0.02em;}
+  .role{font-size:19px;color:var(--accent);font-weight:600;margin:0 0 18px;}
+  .lede{font-size:16px;color:var(--text-dim);max-width:640px;margin:0 0 26px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:var(--text-faint);margin-bottom:28px;}
+  .meta-row span{display:inline-flex;align-items:center;gap:6px;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;
+    border:1px solid var(--card-border);
+  }
+  .btn:hover{text-decoration:none;}
+  .btn.primary{background:var(--accent);color:#08101f;border-color:var(--accent);}
+  .btn.primary:hover{background:#4a7cf0;}
+  .btn.ghost{color:var(--text);background:transparent;}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  section{padding:56px 0;border-top:1px solid var(--card-border);}
+  h2{font-size:22px;margin:0 0 6px;}
+  .section-sub{color:var(--text-faint);font-size:14px;margin:0 0 30px;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .skill-cat h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);margin:0 0 10px;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-size:13px;padding:5px 11px;border-radius:6px;
+    background:var(--tag-bg);border:1px solid var(--tag-border);color:var(--text-dim);
+  }
+
+  /* PROJECTS */
+  .project{
+    background:var(--card);border:1px solid var(--card-border);border-radius:14px;
+    padding:28px 28px 26px;margin-bottom:22px;
+  }
+  .project.flagship{border-color:rgba(91,140,255,0.35);}
+  .project-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px;}
+  .project-title{font-size:19px;font-weight:700;color:var(--text);}
+  .project-links{display:flex;gap:14px;font-size:13px;flex-wrap:wrap;}
+  .project-tagline{color:var(--text-dim);font-size:14px;margin:0 0 16px;}
+  .badge{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--accent-2);background:rgba(126,224,195,0.1);border:1px solid rgba(126,224,195,0.3);
+    padding:3px 9px;border-radius:999px;margin-bottom:14px;
+  }
+  .subsystems{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:18px 0;}
+  .subsystem{background:var(--bg-alt);border:1px solid var(--card-border);border-radius:10px;padding:14px 16px;}
+  .subsystem h4{margin:0 0 6px;font-size:14px;color:var(--text);}
+  .subsystem p{margin:0;font-size:13px;color:var(--text-dim);}
+  .highlights{margin:16px 0 6px;padding-left:0;list-style:none;}
+  .highlights li{
+    position:relative;padding-left:20px;margin-bottom:9px;font-size:14px;color:var(--text-dim);
+  }
+  .highlights li::before{
+    content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;
+    background:var(--accent);transform:rotate(45deg);
+  }
+  .stack-line{margin-top:16px;padding-top:14px;border-top:1px solid var(--card-border);}
+  .stack-line span.label{color:var(--text-faint);font-size:12px;text-transform:uppercase;letter-spacing:.05em;margin-right:8px;}
+
+  /* EXPERIENCE */
+  .job{margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid var(--card-border);}
+  .job:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .job-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;}
+  .job-title{font-size:16px;font-weight:700;color:var(--text);}
+  .job-org{color:var(--accent);font-weight:600;}
+  .job-date{font-size:13px;color:var(--text-faint);white-space:nowrap;}
+  .job-loc{font-size:13px;color:var(--text-faint);font-style:italic;margin:2px 0 12px;}
+  .job ul{margin:0;padding-left:20px;}
+  .job li{font-size:14px;color:var(--text-dim);margin-bottom:7px;}
+
+  /* CERTS/EDU */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .info-card h3{font-size:14px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin:0 0 12px;}
+  .info-item{margin-bottom:10px;}
+  .info-item .t{font-size:15px;font-weight:600;color:var(--text);}
+  .info-item .d{font-size:13px;color:var(--text-faint);}
+
+  /* LEARNING */
+  .learn-card{
+    background:var(--card);border:1px solid var(--card-border);border-radius:14px;
+    padding:22px 26px;
+  }
+  .learn-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .learn-head .t{font-size:15px;font-weight:700;color:var(--text);}
+  .learn-head .pct{font-size:14px;font-weight:700;color:var(--accent-2);}
+  .bar-track{height:8px;border-radius:999px;background:var(--tag-bg);border:1px solid var(--tag-border);overflow:hidden;margin-bottom:12px;}
+  .bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+  .learn-card p{margin:0;font-size:13px;color:var(--text-dim);}
+
+  footer{padding:50px 0 70px;text-align:center;}
+  footer h2{font-size:24px;}
+  footer p{color:var(--text-dim);margin-bottom:26px;}
+  footer .cta-row{justify-content:center;}
+  .fine{margin-top:40px;font-size:12px;color:var(--text-faint);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Prince Emmanuel</div>
+    <div class="navlinks">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#learning">Learning</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> Open to new roles</div>
+    <h1>Prince Emmanuel</h1>
+    <p class="role">Senior Full-Stack Engineer / Software Architect</p>
+    <p class="lede">
+      8+ years building complete products — React/React Native frontends backed by high-performance APIs,
+      event-driven systems, and cloud-native microservices — for Fintech, SaaS, and AI-integrated products.
+      Hands-on experience architecting and building a real-time social media platform solo, backend to
+      mobile. Deep expertise across TypeScript/Node.js, Go, and AWS, owning delivery end-to-end while
+      leading and mentoring engineering teams.
+    </p>
+    <div class="meta-row">
+      <span>📍 Remote · Open to relocation (Canada, Portugal, Spain, EU)</span>
+      <span>🏢 Hybrid available in Lagos, Nigeria</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:odurandyjnr@gmail.com">Email Me</a>
+      <a class="btn ghost" href="https://linkedin.com/in/prince-emmanuel-se" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/watchDOGGGG" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Core Competencies &amp; Technical Skills</h2>
+    <p class="section-sub">Full-stack, from mobile clients to distributed backends.</p>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <h3>Languages</h3>
+        <div class="tag-row">
+          <span class="tag">TypeScript</span><span class="tag">JavaScript</span>
+          <span class="tag">Go</span><span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Frontend &amp; Mobile</h3>
+        <div class="tag-row">
+          <span class="tag">React</span><span class="tag">React Native</span><span class="tag">Expo</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Backend &amp; APIs</h3>
+        <div class="tag-row">
+          <span class="tag">Node.js</span><span class="tag">Express</span>
+          <span class="tag">FastAPI</span><span class="tag">Microservices</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Databases</h3>
+        <div class="tag-row">
+          <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Cloud &amp; DevOps</h3>
+        <div class="tag-row">
+          <span class="tag">AWS (Certified)</span><span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span><span class="tag">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Realtime</h3>
+        <div class="tag-row">
+          <span class="tag">Kafka</span><span class="tag">RabbitMQ</span><span class="tag">WebSockets</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Leadership</h3>
+        <div class="tag-row">
+          <span class="tag">Team Leadership (up to 7)</span><span class="tag">Agile/Scrum</span><span class="tag">Mentorship</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>AI / LLM Tooling</h3>
+        <div class="tag-row">
+          <span class="tag">Gemini API</span><span class="tag">Ollama (local LLMs)</span>
+          <span class="tag">OpenAI-compatible APIs</span><span class="tag">Prompt Engineering</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="wrap">
+    <h2>Currently Leveling Up</h2>
+    <p class="section-sub">Building hands-on experience, not just reading about it.</p>
+    <div class="learn-card">
+      <div class="learn-head">
+        <span class="t">LLM / AI Integration</span>
+        <span class="pct">~40%</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:40%;"></div></div>
+      <p>Actively growing into this — learning by shipping real tools (a desktop AI overlay and an LLM-powered job-application assistant) rather than tutorials alone. Comfortable wiring cloud APIs (Gemini) and local models (Ollama) into working products; still deepening prompt design, structured output, and evaluation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Notable Projects</h2>
+    <p class="section-sub">Selected products built end-to-end, solo and with teams.</p>
+
+    <div class="project flagship">
+      <span class="badge">Flagship · Built Solo</span>
+      <div class="project-head">
+        <div class="project-title">Twedot — Social Commerce &amp; Real-Time Messaging Platform</div>
+        <div class="project-links">
+          <a href="https://twedot.com" target="_blank" rel="noopener">twedot.com</a>
+          <a href="https://github.com/watchDOGGGG" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <p class="project-tagline">
+        A social networking and commerce app with live chat, group rooms, and a Reddit-style feed —
+        designed and built solo across six repositories, from mobile client to backend infrastructure.
+      </p>
+
+      <div class="subsystems">
+        <div class="subsystem">
+          <h4>Mobile App</h4>
+          <p>React Native (New Architecture) + Expo Router, TypeScript. Offline-first storage via WatermelonDB, Zustand + TanStack Query for state, Socket.IO for realtime, Firebase push notifications, tweetnacl for E2E-flavored messaging.</p>
+        </div>
+        <div class="subsystem">
+          <h4>Backend API</h4>
+          <p>Node.js/TypeScript, Express, PostgreSQL, Redis, Socket.IO with a Redis adapter for multi-instance fan-out, BullMQ/RabbitMQ for background jobs. 20+ modules including wallet, credits, withdrawals, boosts, referrals, rooms, and status.</p>
+        </div>
+        <div class="subsystem">
+          <h4>Admin Console</h4>
+          <p>React + Vite + TypeScript + Tailwind. Live user metrics, audit logs, a broadcast/push tool, crash &amp; error monitoring, and withdrawal-approval workflows for the in-app wallet economy.</p>
+        </div>
+        <div class="subsystem">
+          <h4>Go Microservices</h4>
+          <p>Incrementally extracting performance-critical paths from the Node monolith: a production Go upload service streaming large media directly to Cloudflare R2, and an in-progress Go rewrite of the WebSocket chat transport.</p>
+        </div>
+      </div>
+
+      <ul class="highlights">
+        <li>Relay-only 1:1 chat architecture — messages are never persisted server-side, delivered live and queued briefly in Redis, then reconciled client-side into an offline-first local database.</li>
+        <li>Instagram-style message-request/spam-gating system with escalating cooldowns for cold outreach.</li>
+        <li>In-app economy: credits, wallet, paid profile/listing boosts, and referral rewards.</li>
+        <li>Ephemeral 24-hour stories, location-based nearby-user discovery, and group chat rooms with join-request workflows.</li>
+      </ul>
+
+      <div class="stack-line">
+        <span class="label">Stack</span>
+        <span class="tag-row" style="display:inline-flex;gap:6px;">
+          <span class="tag">Node.js</span><span class="tag">Go</span><span class="tag">React Native</span>
+          <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">RabbitMQ</span>
+          <span class="tag">WebSockets</span><span class="tag">Docker</span><span class="tag">AWS</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="badge">Desktop · AI</span>
+      <div class="project-head">
+        <div class="project-title">OverAI for Windows — AI Overlay Panel</div>
+        <div class="project-links">
+          <a href="https://github.com/watchDOGGGG/overai-windows" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <p class="project-tagline">
+        A floating, always-on-top desktop overlay that pops up over any app via a global hotkey, giving
+        instant access to ChatGPT, Claude, Gemini, Grok, DeepSeek, Perplexity, or a fully local model —
+        a Windows port of an existing macOS app.
+      </p>
+      <ul class="highlights">
+        <li>Native Python/Qt desktop app (PyQt6 + WebEngine) — frameless overlay window, system tray, global hotkey (Ctrl+Alt+G) via Win32 APIs, packaged as a standalone .exe.</li>
+        <li>Dual LLM integration: embeds hosted providers' own web chat UI directly, plus a real API layer supporting custom OpenAI-compatible endpoints and a local Ollama server for fully offline "Local AI mode."</li>
+        <li>Voice dictation, Windows Credential Manager-backed API key storage, and acrylic-blur theming.</li>
+      </ul>
+      <div class="stack-line">
+        <span class="label">Stack</span>
+        <span class="tag-row" style="display:inline-flex;gap:6px;">
+          <span class="tag">Python</span><span class="tag">PyQt6</span><span class="tag">Ollama</span>
+          <span class="tag">OpenAI-compatible APIs</span><span class="tag">Win32 API</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="badge">AI · Automation</span>
+      <div class="project-head">
+        <div class="project-title">Job Apply Assistant — LLM-Powered Application Tool</div>
+        <div class="project-links">
+          <a href="https://github.com/watchDOGGGG/job-apply-assistant" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <p class="project-tagline">
+        A local tool that parses a resume, pulls live remote-job listings, uses an LLM to tailor a resume
+        and cover letter per posting, and auto-fills Greenhouse/Lever application forms for manual review.
+      </p>
+      <ul class="highlights">
+        <li>Dual-engine LLM layer switchable between Google Gemini (cloud, structured JSON output) and Ollama (local, JSON-schema-constrained) behind one unified interface.</li>
+        <li>Prompt includes an explicit "honesty guardrail" instructing the model never to invent employers, titles, dates, or skills.</li>
+        <li>Aggregates listings from multiple remote-job feeds (RemoteOK, Arbeitnow, Jobicy, We Work Remotely) and ranks them by resume-keyword match.</li>
+        <li>Playwright drives a real, visible browser to auto-fill application forms, then leaves it open for the user to review and submit — no blind auto-submission.</li>
+      </ul>
+      <div class="stack-line">
+        <span class="label">Stack</span>
+        <span class="tag-row" style="display:inline-flex;gap:6px;">
+          <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Gemini API</span>
+          <span class="tag">Ollama</span><span class="tag">Playwright</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">Uleeb — Rental Matching Platform</div>
+        <div class="project-links">
+          <a href="https://uleeb.twedot.com" target="_blank" rel="noopener">uleeb.twedot.com</a>
+        </div>
+      </div>
+      <p class="project-tagline">
+        A Tinder-style rental platform matching tenants with landlords — tenants swipe to request a property,
+        landlords review and accept or decline, with photo/video listings and a live Discover feed.
+      </p>
+      <ul class="highlights">
+        <li>Go backend (chi router) with MongoDB and Redis; JWT auth plus Google Sign-In verification.</li>
+        <li>Redis-backed OTP flow with per-phone cooldowns, and a fixed-window per-IP rate limiter that fails open safely.</li>
+        <li>Paystack billing for plan upgrades, with both client-side verification and an authoritative webhook.</li>
+        <li>React Native/Expo frontend with a custom swipe-deck component and Firebase push notifications.</li>
+      </ul>
+      <div class="stack-line">
+        <span class="label">Stack</span>
+        <span class="tag-row" style="display:inline-flex;gap:6px;">
+          <span class="tag">Go</span><span class="tag">React Native</span><span class="tag">MongoDB</span>
+          <span class="tag">Redis</span><span class="tag">JWT Auth</span><span class="tag">Paystack</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">Tog — Multiplayer Real-Time Trivia Game</div>
+      </div>
+      <p class="project-tagline">
+        A multiplayer trivia game where players compete live in real time, with instant score updates
+        and synchronised game state across all connected clients.
+      </p>
+      <div class="stack-line">
+        <span class="label">Stack</span>
+        <span class="tag-row" style="display:inline-flex;gap:6px;">
+          <span class="tag">Node.js</span><span class="tag">WebSockets</span><span class="tag">React</span>
+          <span class="tag">Redis (pub/sub)</span><span class="tag">PostgreSQL</span>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Professional Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Senior Full-Stack Engineer / Software Architect <span class="job-org">· Xanotech</span></div>
+        <div class="job-date">Jan 2023 – Present</div>
+      </div>
+      <div class="job-loc">Remote · Team Size: 7 Engineers</div>
+      <ul>
+        <li>Backend architect for a real-estate investment and mortgage platform — designed the API gateway and microservices covering property investment/purchase, mortgage origination, wallets and transactions, subscriptions, and a super-admin back office.</li>
+        <li>Built the platform's super-admin authentication service — OTP verification, role-based admin permissions, and token management securing back-office access.</li>
+        <li>Own the technical roadmap and system architecture across Xanotech's Fintech and SaaS client projects.</li>
+        <li>Lead and mentor a team of up to 7 engineers; run code reviews and Agile sprint cycles.</li>
+        <li>Led the core banking and payment gateway system for a microfinance banking client, from architecture through deployment.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Senior Backend Engineer <span class="job-org">· Beembyte</span></div>
+        <div class="job-date">Jan 2021 – Dec 2022</div>
+      </div>
+      <div class="job-loc">Remote · Team Size: 5 Engineers</div>
+      <ul>
+        <li>Built the backend for an AI-powered SaaS platform, integrating AI/ML services into core workflows for task automation.</li>
+        <li>Implemented real-time WebSocket tracking for live status updates across the platform.</li>
+        <li>Worked across backend, frontend, and mobile codebases alongside a small cross-functional team.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Full-Stack Engineer <span class="job-org">· Nugitech</span></div>
+        <div class="job-date">Apr 2017 – Dec 2020</div>
+      </div>
+      <div class="job-loc">Onsite</div>
+      <ul>
+        <li>Built backend services and RESTful APIs for investor matching and funding workflows.</li>
+        <li>Designed event-driven architectures ensuring fault tolerance and high availability under peak load.</li>
+        <li>Developed React dashboards for deal management, user administration, and analytics.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap">
+    <div class="two-col">
+      <div class="info-card">
+        <h3>Certifications</h3>
+        <div class="info-item">
+          <div class="t">AWS Certified Solutions Architect – Associate</div>
+          <div class="d">Amazon Web Services (AWS) · Valid 2023 – 2026</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3>Education</h3>
+        <div class="info-item">
+          <div class="t">B.Sc. Computer Science</div>
+          <div class="d">University of Cross River State · 2017 – 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p>Open to Senior/Lead Full-Stack and Backend roles — remote-first, open to relocation.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:odurandyjnr@gmail.com">odurandyjnr@gmail.com</a>
+      <a class="btn ghost" href="https://linkedin.com/in/prince-emmanuel-se" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/watchDOGGGG" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="fine">© 2026 Prince Emmanuel</p>
+  </div>
+</footer>
+
+</body>
+</html>
