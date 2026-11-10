@@ -267,6 +267,7 @@
         <h3>Realtime</h3>
         <div class="tag-row">
           <span class="tag">Kafka</span><span class="tag">RabbitMQ</span><span class="tag">WebSockets</span>
+          <span class="tag">LiveKit (WebRTC)</span>
         </div>
       </div>
       <div class="skill-cat">
@@ -352,6 +353,48 @@
           <span class="tag">Node.js</span><span class="tag">Go</span><span class="tag">React Native</span>
           <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">RabbitMQ</span>
           <span class="tag">WebSockets</span><span class="tag">Docker</span><span class="tag">AWS</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="project flagship">
+      <span class="badge">Live · Built Solo</span>
+      <div class="project-head">
+        <div class="project-title">Banter — Real-Time Public Debate Platform</div>
+        <div class="project-links">
+          <a href="https://banter.twedot.com" target="_blank" rel="noopener">banter.twedot.com</a>
+          <a href="https://github.com/watchDOGGGG/banter-web" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <p class="project-tagline">
+        A live debate platform where users create topic-based "banters" — text, audio, or video — and the
+        community votes, chats, and ranks up through a 10-tier XP system. Built solo, end-to-end.
+      </p>
+
+      <div class="subsystems">
+        <div class="subsystem">
+          <h4>Go Backend</h4>
+          <p>Pure Go (net/http), PostgreSQL via pgx/v5 on Aiven, WebSocket hub for real-time chat and voting, LiveKit Cloud integration for audio/video banters, Docker + nginx on AWS EC2.</p>
+        </div>
+        <div class="subsystem">
+          <h4>React Frontend</h4>
+          <p>React 19 + Vite 8 + TypeScript 7 + CSS Modules. Mobile-responsive with a fixed navbar, profile drawer, and a VS-style arena view for live debates. Deployed on Netlify.</p>
+        </div>
+      </div>
+
+      <ul class="highlights">
+        <li>Real-time WebSocket-powered chat with per-message XP rewards and automatic rank progression across 10 tiers (Newbie → Supreme).</li>
+        <li>Three banter formats — text debates with image uploads, live audio rooms, and video face-offs via LiveKit WebRTC.</li>
+        <li>Ranking and leaderboard system with tier-based earning multipliers and progress tracking.</li>
+        <li>Full CI/CD: GitHub Actions auto-deploy for both backend (Docker on EC2) and frontend (Netlify).</li>
+      </ul>
+
+      <div class="stack-line">
+        <span class="label">Stack</span>
+        <span class="tag-row" style="display:inline-flex;gap:6px;">
+          <span class="tag">Go</span><span class="tag">React 19</span><span class="tag">TypeScript</span>
+          <span class="tag">PostgreSQL</span><span class="tag">WebSockets</span><span class="tag">LiveKit</span>
+          <span class="tag">Docker</span><span class="tag">AWS EC2</span><span class="tag">Netlify</span>
         </span>
       </div>
     </div>
